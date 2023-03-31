@@ -7,6 +7,8 @@ COPY ${JAR_FILE} application.jar
 
 COPY ${AGENT_FILE} opentelemetry-javaagent.jar
 
+RUN chown -R opentelemetry-javaagent.jar
+
 EXPOSE 8080
 
 ENV JAVA_TOOL_OPTIONS="-javaagent:opentelemetry-javaagent.jar"
