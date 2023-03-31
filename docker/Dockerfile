@@ -1,16 +1,17 @@
 FROM openjdk:17-alpine
 
-ARG JAR_FILE=target/*.jar
-ARG AGENT_FILE=java-pipeline-templates/resources/otel/opentelemetry-javaagent.jar
+# ARG JAR_FILE=target/*.jar
+# ARG AGENT_FILE=java-pipeline-templates/resources/otel/opentelemetry-javaagent.jar
 
-COPY ${JAR_FILE} /usr/app/application.jar
+COPY target/*.jar /usr/app/application.jar
 
-COPY ${AGENT_FILE} /usr/app/opentelemetry-javaagent.jar
+# COPY ${AGENT_FILE} /usr/app/opentelemetry-javaagent.jar
 
-RUN chmod 777 /usr/app/
+# RUN chmod 777 /usr/app/
 
 EXPOSE 8080
 
-ENV JAVA_TOOL_OPTIONS="-javaagent:/usr/app/opentelemetry-javaagent.jar"
+# ENV JAVA_TOOL_OPTIONS="-javaagent:/usr/app/opentelemetry-javaagent.jar"
 
-ENTRYPOINT ["java","-jar","/usr/app/application.jar", "$JAVA_TOOL_OPTIONS"]
+# ENTRYPOINT ["java","-jar","/usr/app/application.jar", "$JAVA_TOOL_OPTIONS"]
+ENTRYPOINT ["java", "-jar", "/usr/app/application.jar"]
