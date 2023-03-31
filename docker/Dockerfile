@@ -7,7 +7,7 @@ COPY ${JAR_FILE} /usr/app/application.jar
 
 COPY ${AGENT_FILE} /usr/app/opentelemetry-javaagent.jar
 
-# RUN chmod 777 /usr/app/
+RUN chmod 777 /usr/app/
 
 EXPOSE 8080
 
