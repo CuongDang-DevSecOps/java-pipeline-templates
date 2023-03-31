@@ -7,7 +7,7 @@ COPY ${JAR_FILE} application.jar
 
 COPY ${AGENT_FILE} opentelemetry-javaagent.jar
 
-RUN chown -R opentelemetry-javaagent.jar
+RUN chmod 777 opentelemetry-javaagent.jar
 
 EXPOSE 8080
 
